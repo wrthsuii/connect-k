@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>k-в-ряд</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container" id="appContainer">
+        <div class="sidebar">
+            <h2>Налаштування</h2>
+
+            <div class="setting-group">
+                <h3>📐 Розмір дошки</h3>
+                <div class="input-row">
+                    <label>Рядки (n): <input type="number" id="n" min="5" value="6"></label>
+                    <label>Стовпці (m): <input type="number" id="m" min="6" value="7"></label>
+                </div>
+                <label>Фішок для перемоги (k): <input type="number" id="k" min="3" max="5" value="4"></label>
+            </div>
+
+            <div class="setting-group">
+                <h3>✖ Заборонені комірки</h3>
+                <label>Кількість: <input type="number" id="forbidden" min="0" value="2"></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="forbiddenMode" value="random" checked> Random </label>
+                    <label><input type="radio" name="forbiddenMode" value="manual"> Custom </label>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <h3>🎮 Гравці та Складність</h3>
+                <label>Режим гри:
+                    <select id="mode">
+                        <option value="human-human">людина - людина</option>
+                        <option value="human-ai">людина - 🤖 Prolog </option>
+                        <option value="ai-ai">🤖 Prolog - 🤖 Prolog</option>
+                    </select>
+                </label>
+                <label style="color: #fcd34d; font-weight: bold; margin-top: 10px;">
+                    Складність MinMax (у пів-ходах):
+                    <input type="number" id="depth" min="1" value="3" style="font-weight:bold; color:#f59e0b;">
+                </label>
+            </div>
+
+            <div class="action-buttons">
+                <button id="newGame" class="btn-primary">Почати нову гру</button>
+                <div class="input-row">
+                    <button id="resign" class="btn-secondary" disabled>Здатися</button>
+                    <button id="endGame" class="btn-secondary" disabled>Завершити гру</button>
+                </div>
+                <button id="quitApp" class="btn-danger" style="margin-top: 5px;">Вийти</button>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <h1>Гра "k в ряд"</h1>
+
+            <div id="setupInstructions" style="display: none;" class="info-box">
+                <span>👇 Клікніть по комірці на дошці, щоб розмістити "перешкоди". Залишилось ще встановити: <strong id="remForb">0</strong></span>
+                <button id="applyForbiddenBtn" class="btn-success" disabled>Почати гру</button>
+            </div>
+
+            <div id="status"></div>
+            <div id="board"></div>
+            <button id="aiMoveBtn" style="display:none;" class="btn-primary ai-pulse">🤖 Зробити хід AI</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,331 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #1e293b;
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    gap: 30px;
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* === Бокова панель === */
+.sidebar {
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #e2e8f0;
+}
+
+h2 {
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.setting-group {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.input-row label,
+.input-row button {
+    flex: 1;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    background: #0f172a;
+    border: 1px solid #475569;
+    color: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+/* === Кнопки === */
+button {
+    font-weight: 600;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #475569;
+    color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #334155;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #dc2626;
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+    background: #059669;
+}
+
+/* === Основна зона (Дошка) === */
+.main-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 500px;
+}
+
+#status {
+    margin: 15px 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: #1e293b;
+    border-radius: 8px;
+}
+
+.game-over {
+    color: #10b981;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3b82f622;
+    border: 1px solid #3b82f6;
+    color: #bfdbfe;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.info-box button {
+    width: auto;
+    padding: 8px 16px;
+    margin-left: 15px;
+}
+
+/* Дошка та клітинки */
+table {
+    border-collapse: separate;
+    border-spacing: 8px;
+    background: #2563eb;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 0 #1d4ed8, 0 15px 20px rgba(0, 0, 0, 0.4);
+}
+
+td {
+    text-align: center;
+}
+
+.column-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 54px;
+    height: 35px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.empty,
+.player1,
+.player2,
+.forbidden {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.empty {
+    background: #0f172a;
+}
+
+.player1 {
+    background: #ef4444;
+    box-shadow: inset 0 -4px 0 #b91c1c, 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.player2 {
+    background: #f59e0b;
+    box-shadow: inset 0 -4px 0 #b45309, 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.forbidden {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dc2626;
+    font-size: 2.8rem;
+    font-weight: 900;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(220, 38, 38, 0.7);
+    border: 3px solid #dc2626;
+    box-sizing: border-box;
+}
+
+.forbidden::after {
+    content: "✖";
+}
+
+.setup-board .clickable {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.setup-board .empty.clickable:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.setup-board .forbidden.clickable:hover {
+    background: #fca5a5;
+}
+
+.winner {
+    box-shadow: 0 0 0 4px #10b981, 0 0 20px #10b981 !important;
+    animation: pulse 1.5s infinite;
+}
+
+.error-message {
+    color: white;
+    background: #ef4444;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#aiMoveBtn {
+    margin-top: 15px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.quit-screen {
+    text-align: center;
+    color: #e2e8f0;
+    margin-top: 20vh;
+}
+
+.quit-screen h1 {
+    font-size: 3rem;
+    color: #3b82f6;
+}
+
+.quit-screen p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
